@@ -1,5 +1,5 @@
 <section class="property-binding">
-  <article>
+  <!-- <article>
       <h3>Interpolation / Interpolacao</h3>
       <p>String renderizada com interpolacao: {{ url }}</p>
       <p>Resultado de 1 + 1 eh: {{ 1 + 1 }}</p>
@@ -10,5 +10,39 @@
       <h3>Property Binding</h3>
       <img src="{{ urlImagem }}" alt="imagem">
       <img [src]="urlImagem" alt="imagem">
+  </article> -->
+  <article>
+    <div >
+      <h3>Class e Style binding</h3>
+      <div>Selecione uma classe:
+        <select #class (change)="0">
+          <option value="alert-primary">Primary</option>
+          <option value="alert-secondary">Secondary</option>
+          <option value="alert-success">Success</option>
+          <option value="alert-danger">Danger</option>
+        </select>
+        <br><br>
+
+        <div class="alert {{class.value}}" role="alert">
+          Color text changes with the selection
+        </div>
+
+        <div class="alert" role="alert" [class.alert-primary]="class.value == 'alert-primary'">
+          This is a primary alert—check it out!
+        </div>
+        <div class="alert" role="alert" [class.alert-secondary]="class.value == 'alert-secondary'">
+          This is a secondary alert—check it out!
+        </div>
+        <div class="alert" role="alert" [class.alert-success]="class.value == 'alert-success'">
+          This is a success alert—check it out!
+        </div>
+        <div class="alert" role="alert" [class.alert-danger]="class.value == 'alert-danger'">
+          This is a danger alert—check it out!
+        </div>
+        <div class="alert alert-danger" role="alert" [style.display]="class.value == 'alert-danger' ? 'block' : 'none'">
+          Error alert!
+        </div>
+      </div>
+    </div>
   </article>
 </section>
